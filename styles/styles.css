@@ -1,0 +1,31 @@
+body {
+  font-family: 'Verdana', sans-serif;
+}
+
+img {
+  width: 100%;
+}
+
+.thumbnail {
+  position: relative;
+}
+
+.thumbnail::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    rgba(0,0,0,0),
+    rgba(0,0,0,0.7) 80%
+  );
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 0.5em;
+}

@@ -6,8 +6,8 @@ const prepData = (payload) => payload.data.response;
 function renderThumbnails(videos) {
   const thumbnails = videos.map(video => `
     <div class="thumbnail">
-      <img src="${video.thumbnails[0].url}" />
-      <span>${video.title}</span>
+      <img src="${video.thumbnails[1].url}" />
+      <span class="caption">${video.title}</span>
     </div>
   `);
 

@@ -9,7 +9,7 @@ var prepData = function prepData(payload) {
 
 function renderThumbnails(videos) {
   var thumbnails = videos.map(function (video) {
-    return '\n    <div class="thumbnail">\n      <img src="' + video.thumbnails[0].url + '" />\n      <span>' + video.title + '</span>\n    </div>\n  ';
+    return '\n    <div class="thumbnail">\n      <img src="' + video.thumbnails[1].url + '" />\n      <span class="caption">' + video.title + '</span>\n    </div>\n  ';
   });
 
   return thumbnails.join('');
