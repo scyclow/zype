@@ -5,7 +5,9 @@
   "main": "bundle/index.js",
   "scripts": {
     "transpile": "babel scripts --out-dir assets --source-maps",
-    "t": "npm run transpile"
+    "t": "npm run transpile",
+    "watch": "babel scripts --out-dir assets --source-maps --watch",
+    "w": "npm run watch"
   },
   "author": "Steve Pikelny",
   "license": "ISC",
