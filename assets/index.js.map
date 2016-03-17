@@ -1,0 +1,1 @@
+{"version":3,"sources":["../scripts/index.js"],"names":[],"mappings":";;;;IAAM,OACJ,SADI,IACJ,GAAc;wBADV,MACU;;AACZ,SAAO,MAAP,CADY;CAAd","file":"index.js","sourcesContent":["class Bleh {\n  constructor() {\n    return 'bleh'\n  }\n}\n"]}

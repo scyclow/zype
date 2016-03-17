@@ -1,0 +1,13 @@
+{
+  "name": "zype",
+  "version": "0.0.0",
+  "authors": [
+    "scyclow <spike716@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ]
+}
