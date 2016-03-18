@@ -1,13 +1,26 @@
-body {
-  font-family: 'Verdana', sans-serif;
+/*html {
+  height: 100%;
+  overflow: hidden;
 }
 
-img {
-  width: 100%;
+body {
+  font-family: "Raleway", Helvetica, sans-serif;
+  perspective: 1px;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .thumbnail {
   position: relative;
+  transform-style: inherit;
+
+  cursor: pointer;
+  color: #FFFFFF;
+}
+
+.thumbnail:hover {
+  color: #CCCCCC;
 }
 
 .thumbnail::before {
@@ -19,13 +32,28 @@ img {
     rgba(0,0,0,0),
     rgba(0,0,0,0.7) 80%
   );
+  transition: 0.15s;
+}
+
+.thumbnail:hover::before {
+  background-color: rgba(0,0,0,0.2);
+}
+
+.thumbnail:active::before {
+  background-color: rgba(0,0,0,0.35);
+}
+
+.thumbnail-img {
+  width: 100%;
 }
 
 .caption {
   position: absolute;
   bottom: 0;
-  color: white;
   width: 100%;
   text-align: center;
-  padding: 0.5em;
+  padding: 1.5em 0;
+
+  transform: translateZ(.05px);
 }
+*/

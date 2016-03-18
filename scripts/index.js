@@ -1,12 +1,14 @@
 const API_KEY = 'H7CF2IHbEc6QIrMVwb2zfd9VI14HHGAfYax1eHEUsJ4voYuqWF2oWvByUOhERva_';
 const $thumbnailContainer = document.getElementById('thumbnail-container');
+const imgQuality = 1;
 
 const prepData = (payload) => payload.data.response;
+
 
 function renderThumbnails(videos) {
   const thumbnails = videos.map(video => `
     <div class="thumbnail">
-      <img src="${video.thumbnails[1].url}" />
+      <img class="thumbnail-img" src="${video.thumbnails[imgQuality].url}" />
       <span class="caption">${video.title}</span>
     </div>
   `);

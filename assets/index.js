@@ -2,6 +2,7 @@
 
 var API_KEY = 'H7CF2IHbEc6QIrMVwb2zfd9VI14HHGAfYax1eHEUsJ4voYuqWF2oWvByUOhERva_';
 var $thumbnailContainer = document.getElementById('thumbnail-container');
+var imgQuality = 1;
 
 var prepData = function prepData(payload) {
   return payload.data.response;
@@ -9,7 +10,7 @@ var prepData = function prepData(payload) {
 
 function renderThumbnails(videos) {
   var thumbnails = videos.map(function (video) {
-    return '\n    <div class="thumbnail">\n      <img src="' + video.thumbnails[1].url + '" />\n      <span class="caption">' + video.title + '</span>\n    </div>\n  ';
+    return '\n    <div class="thumbnail">\n      <img class="thumbnail-img" src="' + video.thumbnails[imgQuality].url + '" />\n      <span class="caption">' + video.title + '</span>\n    </div>\n  ';
   });
 
   return thumbnails.join('');
