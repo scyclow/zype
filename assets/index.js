@@ -8,9 +8,14 @@ var prepData = function prepData(payload) {
   return payload.data.response;
 };
 
+// Could be cleaned up with lodash's `get` function
+var getImgUrl = function getImgUrl(video) {
+  return video.thumbnails && video.thumbnails.length && video.thumbnails[imgQuality] && video.thumbnails[imgQuality].url || 'default-thumbnail.png';
+};
+
 function renderThumbnails(videos) {
   var thumbnails = videos.map(function (video) {
-    return '\n    <div class="thumbnail">\n      <img class="thumbnail-img" src="' + video.thumbnails[imgQuality].url + '" />\n      <span class="caption">' + video.title + '</span>\n    </div>\n  ';
+    return '\n    <div class="thumbnail">\n      <img class="thumbnail-img" src="' + getImgUrl(video) + '" />\n      <span class="caption">' + video.title + '</span>\n    </div>\n  ';
   });
 
   return thumbnails.join('');

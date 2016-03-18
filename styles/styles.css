@@ -1,4 +1,4 @@
-/*html {
+html {
   height: 100%;
   overflow: hidden;
 }
@@ -9,6 +9,7 @@ body {
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
+  background-color: #999999;
 }
 
 .thumbnail {
@@ -51,9 +52,7 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  text-align: center;
-  padding: 1.5em 0;
+  padding: 1.5em;
 
   transform: translateZ(.05px);
 }
-*/

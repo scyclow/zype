@@ -4,11 +4,18 @@ const imgQuality = 1;
 
 const prepData = (payload) => payload.data.response;
 
+// Could be cleaned up with lodash's `get` function
+const getImgUrl = (video) => (
+    video.thumbnails &&
+    video.thumbnails.length &&
+    video.thumbnails[imgQuality] &&
+    video.thumbnails[imgQuality].url
+  ) || 'default-thumbnail.png';
 
 function renderThumbnails(videos) {
   const thumbnails = videos.map(video => `
     <div class="thumbnail">
-      <img class="thumbnail-img" src="${video.thumbnails[imgQuality].url}" />
+      <img class="thumbnail-img" src="${getImgUrl(video)}" />
       <span class="caption">${video.title}</span>
     </div>
   `);
