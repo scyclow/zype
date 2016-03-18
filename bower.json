@@ -9,5 +9,8 @@
     "**/.*",
     "node_modules",
     "bower_components"
-  ]
+  ],
+  "dependencies": {
+    "axios": "~0.9.1"
+  }
 }
