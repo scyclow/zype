@@ -1,5 +1,13 @@
+// Config
 const API_KEY = 'H7CF2IHbEc6QIrMVwb2zfd9VI14HHGAfYax1eHEUsJ4voYuqWF2oWvByUOhERva_';
 const imgQuality = 1;
+const defaultImgUrl = 'default-thumbnail.png';
+const defaultAspectRatio = 1.78;
+const containerHeight = 0.84;
+const defaultThumbnail = {
+  url: defaultImgUrl,
+  aspect_ratio: defaultAspectRatio
+};
 
 // Model
 class Video {
@@ -17,12 +25,11 @@ class Video {
   constructor(data, imgQuality) {
     this.title = data.title;
     // Could be cleaned up with lodash's `get` function
-    this.imgUrl = (
+    this.thumbnail = (
       data.thumbnails &&
       data.thumbnails.length &&
-      data.thumbnails[imgQuality] &&
-      data.thumbnails[imgQuality].url
-    ) || 'default-thumbnail.png';
+      data.thumbnails[imgQuality]
+    ) || defaultThumbnail;
   }
 }
 
@@ -34,12 +41,17 @@ class Thumnails {
   }
 
   render() {
-    const thumbnails = this.videos.map(video => `
-      <div class="thumbnail">
-        <img class="thumbnail-img" src="${video.imgUrl}" />
-        <span class="caption">${video.title}</span>
-      </div>
-    `);
+    const thumbnails = this.videos.map(video => {
+      const { thumbnail, title } = video;
+      const thumbnailHeight = (100 / thumbnail.aspect_ratio) * containerHeight;
+
+      return `
+        <div class="thumbnail" style="height: ${thumbnailHeight + 'vw'}">
+          <img class="thumbnail-img" src="${thumbnail.url}" />
+          <span class="caption">${title}</span>
+        </div>
+      `;
+    });
 
     this.thumbnailContainer.innerHTML = thumbnails.join('');
   }

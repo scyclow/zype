@@ -4,8 +4,16 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+// Config
 var API_KEY = 'H7CF2IHbEc6QIrMVwb2zfd9VI14HHGAfYax1eHEUsJ4voYuqWF2oWvByUOhERva_';
 var imgQuality = 1;
+var defaultImgUrl = 'default-thumbnail.png';
+var defaultAspectRatio = 1.78;
+var containerHeight = 0.84;
+var defaultThumbnail = {
+  url: defaultImgUrl,
+  aspect_ratio: defaultAspectRatio
+};
 
 // Model
 
@@ -29,7 +37,7 @@ var Video = function () {
 
     this.title = data.title;
     // Could be cleaned up with lodash's `get` function
-    this.imgUrl = data.thumbnails && data.thumbnails.length && data.thumbnails[imgQuality] && data.thumbnails[imgQuality].url || 'default-thumbnail.png';
+    this.thumbnail = data.thumbnails && data.thumbnails.length && data.thumbnails[imgQuality] || defaultThumbnail;
   }
 
   return Video;
@@ -50,7 +58,12 @@ var Thumnails = function () {
     key: 'render',
     value: function render() {
       var thumbnails = this.videos.map(function (video) {
-        return '\n      <div class="thumbnail">\n        <img class="thumbnail-img" src="' + video.imgUrl + '" />\n        <span class="caption">' + video.title + '</span>\n      </div>\n    ';
+        var thumbnail = video.thumbnail;
+        var title = video.title;
+
+        var thumbnailHeight = 100 / thumbnail.aspect_ratio * containerHeight;
+
+        return '\n        <div class="thumbnail" style="height: ' + (thumbnailHeight + 'vw') + '">\n          <img class="thumbnail-img" src="' + thumbnail.url + '" />\n          <span class="caption">' + title + '</span>\n        </div>\n      ';
       });
 
       this.thumbnailContainer.innerHTML = thumbnails.join('');
